@@ -1,14 +1,25 @@
-const container = document.createElement("div");
+const container = document.querySelector('.container')
+const btnBlack = document.createElement('button')
+const btnRgb = document.createElement('button')
+const btnGray = document.createElement('button')
+const btnSize = document.createElement('button')
+const section = document.querySelector('.section');
+const buttonsContainer = document.querySelector('.buttons');
 
-function makeRows(rows, cols) {
-    container.style.setProperty("--grid-rows", rows);
-    container.style.setProperty('--grid-cols', cols);
+window.onload = () => {
+    const boxs = container.querySelectorAll('.box')
+    boxs.forEach(box => box.addEventListener('mouseover', () => {
+        box.style.background = 'black'
+    }))
+}
 
-    for (c=0; c<(rows*cols); c++){
-        let cell = document.createElement("div");
-        cell.innerText=(c+1);
-        container.appendChild(cell).className = "grid-item";
-    };
-};
-
-makeRows(16,16);
+function creatDivs(col , rows) {
+    for(let i = 0;i < (col * rows); i++) {
+        const div = document.createElement('div') 
+        container.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+        container.appendChild(div).classList.add('box')
+        console.log("test");
+    }
+}
+creatDivs(16,16)
