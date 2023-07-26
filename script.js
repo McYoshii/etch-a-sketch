@@ -14,7 +14,7 @@ window.onload = () => {
 }
 
 function creatDivs(col , rows) {
-    for(let i = 0;i < (col * rows); i++) {
+    for(let i = 0; i < (col * rows); i++) {
         const div = document.createElement('div') 
         container.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
@@ -23,3 +23,51 @@ function creatDivs(col , rows) {
     }
 }
 creatDivs(16,16)
+
+
+
+
+
+
+//DESIGN
+
+
+//GRAY
+function colorGray () {
+    const boxs = container.querySelectorAll(".box");
+    btnGray.textContent = "Gray"
+
+    btnGray.addEventListener("click" , () => {
+        boxs.forEach(box => box.addEventListener("mouseover", () => {
+            let RNum = Math.floor(Math.random() * 255)
+            let GrayScale = `rgb(${RNum},${RNum},${RNum})`
+            box.style.background = GrayScale;
+        }))
+    })
+
+    buttonsContainer.appendChild(btnGray).classList.add("btn")
+}
+
+colorGray();
+
+
+//BLACK
+function colorBlack () {
+    const boxs = container.querySelectorAll(".box");
+    btnBlack.textContent = "Black"
+
+    btnBlack.addEventListener("click" , () => {
+        boxs.forEach(box => box.addEventListener("mouseover", () => {
+            let RNum = Math.floor(Math.random() * 255)
+            let BlackScale = `rgb(${RNum},${RNum},${RNum})`
+            box.style.background = BlackScale;
+        }))
+    })
+
+    buttonsContainer.appendChild(btnBlack).classList.add("btn")
+}
+
+colorBlack();
+
+
+
