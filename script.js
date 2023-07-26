@@ -72,14 +72,15 @@ colorBlack();
 function colorRGB () {
     const boxs = container.querySelectorAll(".box");
     btnRgb.textContent = "RGB"
-
     btnRgb.addEventListener("click" , () => {
-        boxs.forEach(box => box.addEventListener("mouseover", () => {
-            let R = Math.floor(Math.random * 255)
-            let G = Math.floor(Math.random * 255)
-            let B = Math.floor(Math.random * 255)
+        boxs.forEach(box => box.addEventListener("mouseover" , () => {
 
-            box.style.background = `RGB(${R},${G},${B})`
+            let R = Math.floor(Math.random() * 256);
+            let G = Math.floor(Math.random() * 256);
+            let B = Math.floor(Math.random() * 256);
+
+            const RGB = `RGB(${R},${G},${B})`;
+            box.style.background = RGB;
         }))
     })
 
@@ -88,16 +89,30 @@ function colorRGB () {
 
 colorRGB();
 
+
+
+
+
+
+//RESET
 function reset () {
     btnReset.textContent = "Reset"
 
     const boxs = container.querySelectorAll(".box");
+
+
+
+
     btnReset.addEventListener("click" , () => {
             
             boxs.forEach (box => {
                 box.style.background='white';
             })
         })
+
+
+
+
         buttonsContainer.appendChild(btnReset).classList.add("btn")
     }
 reset();
