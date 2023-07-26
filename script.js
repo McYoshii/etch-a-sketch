@@ -58,9 +58,7 @@ function colorBlack () {
 
     btnBlack.addEventListener("click" , () => {
         boxs.forEach(box => box.addEventListener("mouseover", () => {
-            let RNum = Math.floor(Math.random() * 255)
-            let BlackScale = `rgb(${RNum},${RNum},${RNum})`
-            box.style.background = BlackScale;
+            box.style.background = 'black';
         }))
     })
 
@@ -68,6 +66,27 @@ function colorBlack () {
 }
 
 colorBlack();
+
+
+//RGB 
+function colorRGB () {
+    const boxs = container.querySelectorAll(".box");
+    btnRgb.textContent = "RGB"
+
+    btnRgb.addEventListener("click" , () => {
+        boxs.forEach(box => box.addEventListener("mouseover", () => {
+            let R = Math.floor(Math.random * 255)
+            let G = Math.floor(Math.random * 255)
+            let B = Math.floor(Math.random * 255)
+
+            box.style.background = `RGB(${R},${G},${B})`
+        }))
+    })
+
+    buttonsContainer.appendChild(btnRgb).classList.add("btn")
+}
+
+colorRGB();
 
 
 
