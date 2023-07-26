@@ -3,6 +3,7 @@ const btnBlack = document.createElement('button')
 const btnRgb = document.createElement('button')
 const btnGray = document.createElement('button')
 const btnSize = document.createElement('button')
+const btnReset = document.createElement('button')
 const section = document.querySelector('.section');
 const buttonsContainer = document.querySelector('.buttons');
 
@@ -19,7 +20,6 @@ function creatDivs(col , rows) {
         container.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
         container.appendChild(div).classList.add('box')
-        console.log("test");
     }
 }
 creatDivs(16,16)
@@ -87,6 +87,21 @@ function colorRGB () {
 }
 
 colorRGB();
+
+function reset () {
+    btnReset.textContent = "Reset"
+
+    const boxs = container.querySelectorAll(".box");
+    btnReset.addEventListener("click" , () => {
+            
+            boxs.forEach (box => {
+                box.style.background='white';
+            })
+        })
+        buttonsContainer.appendChild(btnReset).classList.add("btn")
+    }
+reset();
+
 
 
 
