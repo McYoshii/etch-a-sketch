@@ -14,7 +14,7 @@ window.onload = () => {
     }))
 }
 
-function creatDivs(col , rows) {
+function createDivs(col , rows) {
     for(let i = 0; i < (col * rows); i++) {
         const div = document.createElement('div') 
         container.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
@@ -22,7 +22,7 @@ function creatDivs(col , rows) {
         container.appendChild(div).classList.add('box')
     }
 }
-creatDivs(16,16)
+createDivs(16,16)
 
 
 
@@ -124,13 +124,15 @@ function resize(){ //function does not work as intended
 
         if (user === null || user < 1) {
             reset();
-            createdivs(16,16);
+            createDivs(16,16);
             colorBlack();
             colorGray();
             colorRGB();
-        } else {
+        } 
+        
+        else {
             reset();
-            createdivs(user,user);
+            createDivs(user,user);
             colorBlack();
             colorGray();
             colorRGB();
