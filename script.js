@@ -97,7 +97,6 @@ colorRGB();
 //RESET
 function reset () {
     btnReset.textContent = "Reset"
-
     const boxs = container.querySelectorAll(".box");
 
 
@@ -116,6 +115,31 @@ function reset () {
         buttonsContainer.appendChild(btnReset).classList.add("btn")
     }
 reset();
+
+
+function resize(){ //function does not work as intended
+    btnSize.textContent = "Grid Size"
+    btnSize.addEventListener("click", () => {
+        let user = prompt("Please Input Grid Size (0-100px:) ")
+
+        if (user === null || user < 1) {
+            reset();
+            createdivs(16,16);
+            colorBlack();
+            colorGray();
+            colorRGB();
+        } else {
+            reset();
+            createdivs(user,user);
+            colorBlack();
+            colorGray();
+            colorRGB();
+        }
+    })
+    buttonsContainer.appendChild(btnSize).classList.add("btn");
+}
+
+resize()
 
 
 
