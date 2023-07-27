@@ -92,22 +92,25 @@ colorRGB();
 
 
 
-
+function clearScreen() {
+    boxs.forEach (box => { //this doesn't work
+        box.style.background='white';
+    })
+}
 
 //RESET
 function reset () {
     btnReset.textContent = "Reset"
     const boxs = container.querySelectorAll(".box");
 
-    btnReset.addEventListener("click" , () => {
-            
-            boxs.forEach (box => {
-                box.style.background='white';
-            })
-        })
-        buttonsContainer.appendChild(btnReset).classList.add("btn")
-    }
+    btnReset.addEventListener("click", () => { //clears page when user resizes canvas
 
+        boxs.forEach (box => { //this doesn't work
+            box.style.background='white';
+        })
+    })
+    buttonsContainer.appendChild(btnReset).classList.add("btn");
+}
 reset();
 
 //RESIZE
@@ -137,8 +140,8 @@ function resize(){ //function does not work as intended. supposed to be responsi
 
     btnSize.addEventListener("click", () => { //clears page when user resizes canvas
 
-        boxs.forEach (box => { //this doesn't work
-            box.style.background='white';
+        boxs.forEach (box => { //clears page upon page resize
+            box.style.background = 'white';
         })
     })
     buttonsContainer.appendChild(btnSize).classList.add("btn");
