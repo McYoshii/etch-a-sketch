@@ -99,27 +99,23 @@ function reset () {
     btnReset.textContent = "Reset"
     const boxs = container.querySelectorAll(".box");
 
-
-
-
     btnReset.addEventListener("click" , () => {
             
             boxs.forEach (box => {
                 box.style.background='white';
             })
         })
-
-
-
-
         buttonsContainer.appendChild(btnReset).classList.add("btn")
     }
+
 reset();
 
-
-function resize(){ //function does not work as intended
+//RESIZE
+function resize(){ //function does not work as intended. supposed to be responsible for resizing functionality
+    const boxs = container.querySelectorAll(".box");
     btnSize.textContent = "Grid Size"
     btnSize.addEventListener("click", () => {
+        
         let user = prompt("Please Input Grid Size (0-100px:) ")
 
         if (user === null || user < 1) {
@@ -132,11 +128,18 @@ function resize(){ //function does not work as intended
         
         else {
             reset();
-            createDivs(user,user);
+            createDivs(user , user);
             colorBlack();
             colorGray();
             colorRGB();
         }
+    })
+
+    btnSize.addEventListener("click", () => { //clears page when user resizes canvas
+
+        boxs.forEach (box => { //this doesn't work
+            box.style.background='white';
+        })
     })
     buttonsContainer.appendChild(btnSize).classList.add("btn");
 }
